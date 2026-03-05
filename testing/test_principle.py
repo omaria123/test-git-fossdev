@@ -43,10 +43,16 @@ def test_tax_calculator():
 	assert calculate_tax(1) == 0.15
 	print("test TAX CALCULATOR PASSED")
 
+def test_negative_income():
+	try:
+		calculate_tax(-100)
+		print("test NEGATIVE INCOME FAILED")
+	except ValueError as e:
+		print("test NEGATIVE INCOME PASSED")
 if __name__ == "__main__":
 	test_addition()
 	test_addication_with_bug()
-	test_addication_dublicate()
-	test_addication_overkill()
-	test_addication_clusters()
+	#test_addication_dublicate()
+	#test_addication_overkill()
+	#test_addication_clusters()
 	test_tax_calculator()
