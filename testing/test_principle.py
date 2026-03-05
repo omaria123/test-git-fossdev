@@ -2,6 +2,7 @@ import sys
 sys.path.append("../src")
 
 #TODO make it with 'pip insfall -c'
+#in project root_dir after setup.py defind
 
 from math_demo import add
 def test_addition():
