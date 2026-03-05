@@ -17,5 +17,29 @@ def test_addication_with_bug():
 	assert add_with_bug(0, 0) == 0
 	print("test BUGGED ADDICATION PASSED")
 	assert add_with_bug(7, 6) == 13
+def test_addication_dublicate():
+	assert add(6, 7) == 6 + 7
+	print("test DUBLICATE ADDICATIN PASSED")
+
+def test_addication_overkill():
+	for i in range(0, 2 ** 32):
+		for j in range(0, 2 ** 32):
+			assert add(i, j) == i + j
+			assert add(-i, j) == i + j
+			assert add(-i, -j) == i + j
+			assert add(i, -j) == i + j
+def test_addication_clusters():
+	assert add(7, 6) == 13
+	assert add(0, 6) == 6
+	assert add(7, 6) == 7
+	assert add(10, -11) == -1
+	print("test CLUSTERS ADDICATION PASSED")
+
+
+
 if name == "__main__":
-    test_addition()
+	test_addition()
+	test_addication_with_bug()
+	test_addication_dublicate()
+	test_addication_overkill()
+	test_addication_clusters()
