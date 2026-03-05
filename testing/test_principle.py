@@ -4,10 +4,11 @@ sys.path.append("../src")
 #TODO make it with 'pip insfall -c'
 #in project root_dir after setup.py defind
 
-from math_demo import {
+from math_demo import (
 	add,
-	add_with_bug
-}
+	add_with_bug,
+	calculate_tax
+)
 def test_addition():
     assert 2 + 2 == 4
     print("test ADDIOTION PASSED")
@@ -35,11 +36,17 @@ def test_addication_clusters():
 	assert add(10, -11) == -1
 	print("test CLUSTERS ADDICATION PASSED")
 
+def test_tax_calculator():
+	assert calculate_tax(1000) == 150
+	assert calculate_tax(100) == 15
+	assert calculate_tax(10) == 1.5
+	assert calculate_tax(1) == 0.15
+	print("test TAX CALCULATOR PASSED")
 
-
-if name == "__main__":
+if __name__ == "__main__":
 	test_addition()
 	test_addication_with_bug()
 	test_addication_dublicate()
 	test_addication_overkill()
 	test_addication_clusters()
+	test_tax_calculator()
