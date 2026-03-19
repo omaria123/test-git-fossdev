@@ -1,14 +1,15 @@
 .DEFAULT_GOAL := help
 create-practice:
-ifdef PRACTICE
+ifndef PRACTICE
 	$(error must pass val PRACTICE)
 	
 endif
 	@echo "Creating practice"
 	mkdir -p $(PRACTICE)
+	cp PracticeMakefile $(PRACTICE)/Makefile
 
 remove-practice:
-ifdef PRACTICE
+ifndef PRACTICE
 	$(error must pass val PRACTICE)
 	
 endif
@@ -16,8 +17,3 @@ endif
 help:
 	@echo "This makefile for repo.level activity"
 
-#mkdir demo-practice
-#mkdir demo-practice/src
-#mkdir demo-practice/tests
-#mkdir demo-practice/docs
-#mkdir demo-practice/README.md
