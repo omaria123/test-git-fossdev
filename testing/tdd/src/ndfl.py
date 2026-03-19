@@ -1,4 +1,4 @@
-def calculate_ndfl(income):
+def calculate_ndfl(income, investment=False, has_children=False):
 	result = 0
 	tiers = [(0, 0, 0.13),
 		(2_400_000, 312_000, 0.15),
