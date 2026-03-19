@@ -1,5 +1,0 @@
-create-structure:
-	mkdir src tests docs
-	touch README.md setup.py requirements.txt
-	touch docs/DOMAIN.md
-	touch src/.gitkeep tests/.gitkeep
