@@ -1,9 +1,10 @@
-.PHONY: help
+.PHONY: help setup run clean check-requirements
 
 help:
 	@echo "make setup - Create virtual environment and install dependencies"
 	@echo "make run - Run the application"
 	@echo "make clean - Clean temporary files"
+	@echo "make check-requirements - Check that all imports are in requirements.txt"
 
 PYTHON = .venv/bin/python
 PIP = .venv/bin/pip
@@ -20,3 +21,6 @@ clean:
 	rm -rf .venv
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete
+
+check-requirements:
+	$(PYTHON) scripts/check_requirements.py
