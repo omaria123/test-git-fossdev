@@ -12,3 +12,5 @@ setup:
 	python3 -m venv .venv
 	$(PIP) install --upgrade pip
 	$(PIP) install -r requirements.txt
+run:
+	$(PYTHON) src/app.py
