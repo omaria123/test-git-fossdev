@@ -12,5 +12,11 @@ setup:
 	python3 -m venv .venv
 	$(PIP) install --upgrade pip
 	$(PIP) install -r requirements.txt
+
 run:
 	$(PYTHON) src/app.py
+
+clean:
+	rm -rf .venv
+	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+	find . -type f -name "*.pyc" -delete
