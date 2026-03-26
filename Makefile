@@ -6,6 +6,8 @@ help:
 	@echo "make clean - Clean temporary files"
 	@echo "make check-requirements - Check that all imports are in requirements.txt"
 	@echo "make typecheck - Run static type checking with mypy"
+	@echo "make format - Auto-format code with black"
+	@echo "make lint - Check code style with flake8"
 
 PYTHON = .venv/bin/python
 PIP = .venv/bin/pip
