@@ -24,3 +24,8 @@ clean:
 
 check-requirements:
 	$(PYTHON) scripts/check_requirements.py
+
+MYPY = .venv/bin/mypy
+
+typecheck:
+	$(MYPY) src/ --config-file mypy.ini
