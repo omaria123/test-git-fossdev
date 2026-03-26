@@ -2,3 +2,5 @@ requests==2.31.0
 numpy
 fastapi==0.104.1
 mypy
+black 
+flake8
