@@ -30,3 +30,12 @@ MYPY = .venv/bin/mypy
 
 typecheck:
 	$(MYPY) src/ --config-file mypy.ini
+
+BLACK = .venv/bin/black
+FLAKE8 = .venv/bin/flake8
+
+format:
+	$(BLACK) src/ scripts/
+
+lint:
+	$(FLAKE8) src/ scripts/ --config pyproject.toml
