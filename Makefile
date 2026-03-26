@@ -35,7 +35,8 @@ BLACK = .venv/bin/black
 FLAKE8 = .venv/bin/flake8
 
 format:
-	$(BLACK) src/ scripts/
+	format:
+	$(BLACK) $(FILE)
 
 lint:
-	$(FLAKE8) src/ scripts/ --config pyproject.toml
+	$(FLAKE8) src/ scripts/ --config pyproject.tomlformat 
