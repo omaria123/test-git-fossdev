@@ -5,6 +5,7 @@ help:
 	@echo "make run - Run the application"
 	@echo "make clean - Clean temporary files"
 	@echo "make check-requirements - Check that all imports are in requirements.txt"
+	@echo "make typecheck - Run static type checking with mypy"
 
 PYTHON = .venv/bin/python
 PIP = .venv/bin/pip
