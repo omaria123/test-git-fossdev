@@ -35,7 +35,6 @@ BLACK = .venv/bin/black
 FLAKE8 = .venv/bin/flake8
 
 format:
-	format:
 	$(BLACK) $(FILE)
 
 lint:
