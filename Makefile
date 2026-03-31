@@ -5,9 +5,9 @@ PIP = .venv/bin/pip
 
 help:
 	@echo "Available commands:"
-	@echo "  make setup - Create virtual environment and install dependencies"
-	@echo "  make test  - Run tests"
-	@echo "  make clean - Clean virtual environment"
+	@echo "make setup - Create virtual environment and install dependencies"
+	@echo "make test  - Run tests"
+	@echo "make clean - Clean virtual environment"
 
 setup:
 	python3 -m venv .venv
