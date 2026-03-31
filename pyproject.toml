@@ -14,6 +14,10 @@ authors = [
 requires-python = ">=3.9"
 dependencies = []
 
+[project.urls]
+Homepage = "https://github.com/omaria123/test-git-fossdev/tree/feature/simplemath-library"
+Repository = "https://github.com/omaria123/test-git-fossdev"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 packages = ["simplemath"]
