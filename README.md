@@ -71,6 +71,6 @@ $ make publish-test $
 ### Установка библиотеки
 
 Установка из TestPyPI выполняется командой:
-$ pip install --index-url https://test.pypi.org/simple/ simplemath-new $
+$ pip install --index-url https://test.pypi.org/simple/simplemath-new $
 
 После установки библиотека готова к использованию.
