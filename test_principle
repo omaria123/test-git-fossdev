@@ -1,8 +1,0 @@
-import sys
-
-from math_demo import add
-def test_addication():
-	assert 2 + 2 == 4
-	print("test addiyion passed")
-if __name__ == "__main__":
-	test_addication()
