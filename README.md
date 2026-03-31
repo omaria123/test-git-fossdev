@@ -65,12 +65,12 @@ Makefile предоставляет единую точку входа для в
 
 ### Публикация на TestPyPI
 
-$ make publish-test $
+` make publish-test `
 Пакет успешно опубликован и доступен для установки через pip.
 
 ### Установка библиотеки
 
 Установка из TestPyPI выполняется командой:
-$ pip install --index-url https://test.pypi.org/simple/simplemath-new $
+` pip install --index-url https://test.pypi.org/simple/simplemath-new `
 
 После установки библиотека готова к использованию.
