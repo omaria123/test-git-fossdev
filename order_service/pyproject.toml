@@ -9,6 +9,8 @@ license = "MIT"
 readme = "README.md"
 requires-python = "^3.12"
 dependencies = [
+    "uvicorn[cstandart] (>=0.46.0,<0.47.0)",
+    "fastapi (>=0.136.1,<0.137.0)"
 ]
 
 
