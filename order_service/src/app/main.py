@@ -33,6 +33,11 @@ class ProductFromService(BaseModel):
     available: bool
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    return {"message": "Order Service is running", "docs": "/docs"}
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "order-service"}
