@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "product-service"
+version = "0.0.1"
+description = "Product service for managing products"
+authors = ["metsha <ogorodnikovamaria07@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.136.1"
+uvicorn = {version = "^0.46.0", extras = ["standard"]}
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
