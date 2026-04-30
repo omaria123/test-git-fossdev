@@ -1,4 +1,4 @@
-service:
+services:
   product-service:
     build: ./product_service
     ports:
