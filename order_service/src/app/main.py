@@ -4,8 +4,22 @@ import httpx
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
+from datetime import datetime
+from contextlib import asynccontextmanager
 
-app = FastAPI(title="Order Service")
+from .database import get_order, init_db, save_order
+from .settings import get_settings
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+app = FastAPI(
+    title="Order Service",
+    lifespan=lifespan,
+)
 
 
 PRODUCT_SERVICE_URL = os.getenv(
@@ -26,16 +40,20 @@ class OrderResponse(BaseModel):
     total: float
 
 
+class StoredOrderResponse(BaseModel):
+    id: int
+    product_id: str
+    quantity: int
+    unit_price: float
+    total: float
+    created_at: datetime
+
+
 class ProductFromService(BaseModel):
     id: str
     name: str
     price: float
     available: bool
-
-
-@app.get("/")
-def root() -> dict[str, str]:
-    return {"message": "Order Service is running", "docs": "/docs"}
 
 
 @app.get("/health")
@@ -55,12 +73,41 @@ async def create_order(order: OrderRequest) -> OrderResponse:
 
     total = product.price * order.quantity
 
+    order_id = save_order(
+        {
+            "product_id": product.id,
+            "quantity": order.quantity,
+            "unit_price": product.price,
+            "total": total,
+        }
+    )
+
     return OrderResponse(
         product_id=product.id,
         quantity=order.quantity,
         unit_price=product.price,
         total=total,
     )
+
+@app.get("/orders/{order_id}", response_model=StoredOrderResponse)
+def read_order(order_id: int) -> StoredOrderResponse:
+    saved_order = get_order(order_id)
+
+    if saved_order is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Order '{order_id}' was not found",
+        )
+
+    return StoredOrderResponse(
+        id=saved_order["id"],
+        product_id=saved_order["product_id"],
+        quantity=saved_order["quantity"],
+        unit_price=float(saved_order["unit_price"]),
+        total=float(saved_order["total"]),
+        created_at=saved_order["created_at"],
+    )
+
 
 
 async def fetch_product(product_id: str) -> ProductFromService:
