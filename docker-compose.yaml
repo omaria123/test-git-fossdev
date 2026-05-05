@@ -16,7 +16,24 @@ services:
       - product-service
     networks:
       -service-net
-
+  db:
+    image: postgres: 16
+    enviroment: 
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: order 
+    posts:
+      - "5432:5432"
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD_SHELL", "pg_isready -U app -d orders"]
+      interval: 5s
+      timeout: 5s
+      retries: 5 
+volumes:
+  order-db-data:
+  
 networks:
   service-net:
     driver: bridge
