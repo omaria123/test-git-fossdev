@@ -18,11 +18,11 @@ services:
     ports:
       - "8002:8000"
     environment:
-      PRODUCT_SERVICE_URL: http://product-service:8000
+      PRODUCT_SERVICE_URL: http://product-service:8001
       DISCOUNT_SERVICE_URL: http://discount-service:8003
     depends_on:
-      product-service:
-        condition: service_started
+      - product-service
+      - discount-service
     networks:
       - service-net
 
