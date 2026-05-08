@@ -1,19 +1,15 @@
-.DEFAULT_GOAL := help
-create-practice:
-ifndef PRACTICE
-	$(error must pass val PRACTICE)
-	
-endif
-	@echo "Creating practice"
-	mkdir -p $(PRACTICE)
-	cp PracticeMakefile $(PRACTICE)/Makefile
+install-all:
+	cd product_service && make install
+	cd discount_service && make install
+	cd order_service && make install
 
-remove-practice:
-ifndef PRACTICE
-	$(error must pass val PRACTICE)
-	
-endif
-	rm -rf $(PRACTICE)
-help:
-	@echo "This makefile for repo.level activity"
+docker-up:
+	docker-compose up --build
 
+docker-down:
+	docker-compose down
+
+clean-all:
+	cd product_service && make clean
+	cd discount_service && make clean
+	cd order_service && make clean
